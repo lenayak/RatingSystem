@@ -13,4 +13,10 @@ public class Restaurant {
     private CuisineType cuisineType;
     private BigDecimal averageBill;
     private BigDecimal rating;
+    public CuisineType getTypeCuisine() {
+        return cuisineType;
+    }
+    public BigDecimal getAveCheck() {
+        return averageBill;
+    }
 }

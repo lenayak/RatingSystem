@@ -17,7 +17,7 @@ public class RatingVisitor {
     private Long restaurantId;
     private int score;
     private String reviewText;
-    public Object getIdRestaurant() {
+    public Long getIdRestaurant() {
         return restaurantId;
     }
     public Long getIdVisitor() {
