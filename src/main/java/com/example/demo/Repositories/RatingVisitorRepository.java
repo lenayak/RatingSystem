@@ -1,6 +1,6 @@
 package com.example.demo.Repositories;
 
-import com.example.demo.Entities.Rating;
+import com.example.demo.Entities.RatingVisitor;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository  
-public class RatingRepository {
-    private final List<Rating> ratings = new ArrayList<>();
+public class RatingVisitorRepository {
+    private final List<RatingVisitor> ratings = new ArrayList<>();
     private long nextId = 1;
 
-    public Rating save(Rating rating) {
+    public RatingVisitor save(RatingVisitor rating) {
         rating.setId(nextId++);
         ratings.add(rating);
         return rating;
@@ -22,11 +22,11 @@ public class RatingRepository {
         return ratings.removeIf(r -> r.getId().equals(id));
     }
 
-    public List<Rating> findAll() {
+    public List<RatingVisitor> findAll() {
         return new ArrayList<>(ratings);
     }
 
-    public Optional<Rating> findById(Long id) {
+    public Optional<RatingVisitor> findById(Long id) {
         return ratings.stream()
                 .filter(r -> r.getId().equals(id))
                 .findFirst();
