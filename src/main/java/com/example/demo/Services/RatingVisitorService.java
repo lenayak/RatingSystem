@@ -4,6 +4,7 @@ import com.example.demo.DTO.RatingRequestDTO;
 import com.example.demo.DTO.RatingResponseDTO;
 import com.example.demo.Entities.RatingVisitor;
 import com.example.demo.Entities.Restaurant;
+// import com.example.demo.Entities.Visitor;
 import com.example.demo.Repositories.RatingVisitorRepository;
 import com.example.demo.Repositories.RestaurantRepository;
 
@@ -22,11 +23,7 @@ public class RatingVisitorService {
         this.restaurantRepository = restaurantRepository;
     }
     public RatingResponseDTO addRating(RatingRequestDTO ratingRequestDTO) {
-        RatingVisitor rating = new RatingVisitor(
-            ratingRequestDTO.idVisitor(), 
-            ratingRequestDTO.idRestaurant(), 
-            ratingRequestDTO.rating(), 
-            ratingRequestDTO.textReview());
+        RatingVisitor rating = new RatingVisitor();
         rating = ratingVisitorRepository.save(rating);
         updateRestaurantRating(ratingRequestDTO.idRestaurant());
         return convertToResponse(rating);
@@ -51,9 +48,9 @@ public class RatingVisitorService {
                     .orElse(0.0);
             BigDecimal averageRating = BigDecimal.valueOf(average)
                     .setScale(2, RoundingMode.HALF_UP);
-            Restaurant restaurant = restaurantRepository.findById(restaurantId)
+            Object restaurant = restaurantRepository.findById(restaurantId)
                     .orElseThrow(() -> new RuntimeException("Ресторан не найден"));
-            restaurant.setRating(averageRating);
+            ((Restaurant) restaurant).setRating(averageRating);
         }
     }
      public List<RatingResponseDTO> getAllRatings() {

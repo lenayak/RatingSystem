@@ -3,11 +3,12 @@ package com.example.demo.Services;
 import com.example.demo.DTO.RestaurantRequestDTO;
 import com.example.demo.DTO.RestaurantResponseDTO;
 import com.example.demo.Entities.Restaurant;
+import com.example.demo.Entities.Visitor;
 import com.example.demo.Repositories.RestaurantRepository;
 import org.springframework.stereotype.Service;
 
 // import java.math.BigDecimal;
-// import java.util.List;
+import java.util.List;
 
 @Service  
 public class RestaurantService {
@@ -35,5 +36,12 @@ public class RestaurantService {
 
     public void removeRestaurant(Long id) {
         restaurantRepository.remove(id);
+    }
+    public List<Visitor> getAllRestaurants() {
+       return  restaurantRepository.findAll();
+    }
+    public Visitor getRestaurantById(Long id) {
+       return restaurantRepository.findById(id)
+               .orElseThrow(() -> new RuntimeException("Ресторан не найден"));
     }
 }

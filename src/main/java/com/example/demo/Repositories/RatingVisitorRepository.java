@@ -18,6 +18,7 @@ import java.util.List;
     Double findAverageRatingByRestaurantId(@Param("restaurantId") Long restaurantId);
     List<RatingVisitor> findByRestaurantId(Long restaurantId);
     List<RatingVisitor> findByVisitorId(Long visitorId);
+    void remove(Long id);
 }
     // private final List<RatingVisitor> ratings = new ArrayList<>();
     // private long nextId = 1;

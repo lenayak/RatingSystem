@@ -2,6 +2,8 @@ package com.example.demo.Controllers;
 
 import com.example.demo.DTO.RestaurantRequestDTO;
 import com.example.demo.DTO.RestaurantResponseDTO;
+import com.example.demo.Entities.Restaurant;
+import com.example.demo.Entities.Visitor;
 import com.example.demo.Services.RestaurantService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,12 +21,12 @@ public class RestaurantController {
     }
     @GetMapping
     @Operation(summary = "Получить все рестораны")
-    public List<RestaurantResponseDTO> getAllRestaurants() {
+    public List<Visitor> getAllRestaurants() {
         return restaurantService.getAllRestaurants();
     }
         @GetMapping("/{id}")
     @Operation(summary = "Получить ресторан по ID")
-    public RestaurantResponseDTO getRestaurant(@PathVariable Long id) {
+    public Visitor getRestaurant(@PathVariable Long id) {
         return restaurantService.getRestaurantById(id);
     }
     @PostMapping
