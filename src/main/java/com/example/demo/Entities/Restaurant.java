@@ -19,4 +19,7 @@ public class Restaurant {
     public BigDecimal getAveCheck() {
         return averageBill;
     }
+    public BigDecimal getUserRating() {
+        return rating;
+    }
 }
