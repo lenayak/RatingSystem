@@ -40,4 +40,6 @@ public class RatingVisitor {
     public String getTextReview() {
         return reviewText;
     }
+    public void setRestaurantId(Restaurant restaurant) {
+    }
 }
