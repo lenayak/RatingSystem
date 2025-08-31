@@ -43,4 +43,5 @@ public class RestaurantController {
     public void deleteRestaurant(@PathVariable Long id) {
         restaurantService.removeRestaurant(id);
     }
+
 }

@@ -6,7 +6,7 @@ import com.example.demo.Entities.Restaurant;
 import com.example.demo.Repositories.RestaurantRepository;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
+// import java.math.BigDecimal;
 import java.util.List;
 
 @Service  
@@ -47,7 +47,7 @@ public class RestaurantService {
         return convertToResponse(restaurant);
     }
 
-     private RestaurantResponseDTO convertToResponse(Restaurant restaurant) {
+    private RestaurantResponseDTO convertToResponse(Restaurant restaurant) {
         return new RestaurantResponseDTO(restaurant.getId(), restaurant.getName(), 
             restaurant.getDescription(), restaurant.getTypeCuisine(),
             restaurant.getAveCheck(), restaurant.getUserRating());
